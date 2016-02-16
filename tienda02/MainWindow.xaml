@@ -1,0 +1,27 @@
+﻿<Window x:Name="principal" x:Class="tienda02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tienda02"
+        mc:Ignorable="d"
+        Title="COMPRAS" Height="654.464" Width="980.365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1F1A1A">
+    <Grid FocusManager.FocusedElement="{Binding ElementName=textBoxNuevoElemento}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="843*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="NUEVO ELEMENTO" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="26,19,0,0" Width="196" FontSize="20" Foreground="White"/>
+        <TextBox x:Name="textBoxNuevoElemento" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="127" Margin="247,27,0,0" KeyUp="textBoxNuevoElemento_KeyUp"/>
+        <Label x:Name="labelNuevoElemento" Content="ELEMENTO ELEGIDO" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="26,76,0,0" Width="196" FontSize="20" Foreground="White"/>
+        <Label x:Name="labelElementoSeleccionadoCodigo" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="247,76,0,0" Width="127" FontSize="20" Foreground="White"/>
+        <Label x:Name="label_Copy" Content="ELEMENTOS AÑADIDOS" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="637,23,0,0" Width="237" FontSize="20" Foreground="White" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="190" Margin="520,93,0,0" VerticalAlignment="Top" Width="421" Background="#FF3A3434" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" Grid.ColumnSpan="3" SelectionChanged="dataGridElementos_SelectionChanged"/>
+        <Label x:Name="labelElementoSeleccionadoNombre" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="247,134,0,0" Width="127" FontSize="20" Foreground="White"/>
+        <Image x:Name="imageElementoSeleccionado" HorizontalAlignment="Left" Height="143" Margin="247,220,0,0" VerticalAlignment="Top" Width="154" Stretch="Fill" Cursor="None"/>
+        <Image x:Name="imageElementoAñadido" HorizontalAlignment="Left" Height="148" Margin="637,317,0,0" VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="btnSalir" Content="SALIR" HorizontalAlignment="Left" Height="71" Margin="374,514,0,0" VerticalAlignment="Top" Width="239" Background="#FF2E2828" Foreground="White" FontSize="28" Click="btnSalir_Click"/>
+    </Grid>
+</Window>
