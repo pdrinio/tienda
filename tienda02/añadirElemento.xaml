@@ -5,21 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tienda02"
         mc:Ignorable="d"
-        Title="AÑADIR ELEMENTO" Height="350" Width="371.667" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="AÑADIR ELEMENTO" Height="659" Width="814.167" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF1F1A1A" Margin="0" FocusManager.FocusedElement="{Binding ElementName=txbCodigo}">
 
-        <Label x:Name="label" Content="Código" Margin="19,17,252,269" Width="95" Foreground="White"/>
-        <Label x:Name="label_Copy" Content="Nombre" Margin="19,97,252,189" Width="95" Foreground="White"/>
-        <Label x:Name="label_Copy1" Content="Imagen" Margin="19,57,252,229" Width="95" Foreground="White"/>
-        <Label x:Name="label_Copy2" Content="Precio" Height="28" Margin="19,137,252,156" Width="95" Foreground="White"/>
-        <TextBox x:Name="txbCodigo" HorizontalAlignment="Left" Height="28" Margin="123,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Background="#FF3C3232" TabIndex="1" Foreground="White" FontSize="18"/>
-        <TextBox x:Name="txbImagen" HorizontalAlignment="Left" Height="28" Margin="123,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Background="#FF3C3232" TabIndex="2" Foreground="White" FontSize="18"/>
-        <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Height="28" Margin="123,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Background="#FF3C3232" TabIndex="3" Foreground="White" FontSize="18"/>
-        <TextBox x:Name="txbPrecio" HorizontalAlignment="Left" Height="28" Margin="123,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Background="#FF3C3232" TabIndex="4" Foreground="White" FontSize="18"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="66" Margin="146,183,0,0" VerticalAlignment="Top" Width="92"/>
-        <Button x:Name="btnAceptar" Content="ACEPTAR" HorizontalAlignment="Left" Height="36" Margin="84,267,0,0" VerticalAlignment="Top" Width="98" Background="#FF2E2828" Foreground="White" TabIndex="5" Click="btnAceptar_Click"/>
-        <Button x:Name="btnCancelar" Content="CANCELAR" HorizontalAlignment="Left" Height="36" Margin="202,267,0,0" VerticalAlignment="Top" Width="98" Background="#FF2E2828" Foreground="White" Click="btnCancelar_Click" TabIndex="6"/>
-        <Button x:Name="btnBuscarFoto" Content="?" HorizontalAlignment="Left" Height="26" Margin="327,59,0,0" VerticalAlignment="Top" Width="21" Background="#FF2E2828" Foreground="White" Click="btnBuscarFoto_Click"/>
+        <Label x:Name="label" Content="Código" Margin="63,55,590,497" Foreground="White" FontSize="34"/>
+        <Label x:Name="label_Copy" Content="Nombre" Margin="63,218,590,325" Foreground="White" FontSize="34"/>
+        <Label x:Name="label_Copy1" Content="Imagen" Margin="63,133,590,417" Foreground="White" FontSize="34"/>
+        <Label x:Name="label_Copy2" Content="Precio" Margin="63,310,619,234" Foreground="White" FontSize="34"/>
+        <TextBox x:Name="txbCodigo" HorizontalAlignment="Left" Height="40" Margin="243,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="1" Foreground="White" FontSize="22"/>
+        <TextBox x:Name="txbImagen" HorizontalAlignment="Left" Height="40" Margin="243,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="100" Foreground="White" FontSize="22"/>
+        <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Height="40" Margin="243,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="2" Foreground="White" FontSize="22"/>
+        <TextBox x:Name="txbPrecio" HorizontalAlignment="Left" Height="40" Margin="243,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="3" Foreground="White" FontSize="22"/>
+        <Button x:Name="btnAceptar" HorizontalAlignment="Left" Height="108" Margin="130,456,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" TabIndex="4" Click="btnAceptar_Click" BorderBrush="#FF1F1A1A">
+            <Image x:Name="OK" Source="ok.ico"/>
+        </Button>
+        <Button x:Name="btnCancelar" HorizontalAlignment="Left" Height="108" Margin="499,456,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" Click="btnCancelar_Click" TabIndex="6" BorderBrush="#FF1F1A1A">
+            <Image x:Name="cancelar" Source="cancelar.ico"/>
+        </Button>
+        <Button x:Name="btnBuscarFoto" HorizontalAlignment="Left" Height="271" Margin="528,80,0,0" VerticalAlignment="Top" Width="248" Background="#FF2E2828" Foreground="White" Click="btnBuscarFoto_Click">
+            <Image x:Name="image" HorizontalAlignment="Center" Height="270" VerticalAlignment="Center" Width="248"/>
+        </Button>
 
     </Grid>
 </Window>

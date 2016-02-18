@@ -113,5 +113,10 @@ namespace tienda02
                 gestionArticulos1.dataGridElementos.SelectionChanged += dataGridElementos_SelectionChanged_1;
             }
         }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

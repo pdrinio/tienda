@@ -5,14 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tienda02"
         mc:Ignorable="d"
-        Title="GESTIÓN DE ARTÍCULOS" Height="500" Width="745" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FF1F1A1A">
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="56" Margin="157,287,0,0" VerticalAlignment="Top" Width="171" Background="#FF2E2828" Foreground="White" FontSize="26.667" Click="btnEliminar_Click"/>
+        Title="GESTIÓN DE ARTÍCULOS" Height="714.5" Width="1070.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF1F1A1A" Margin="0,0,4,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="827*"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnEliminar" HorizontalAlignment="Left" Height="108" Margin="176,390,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" FontSize="26.667" Click="btnEliminar_Click" BorderBrush="#FF1F1A1A">
+            <Image x:Name="imgEliminar" Source="delete.ico" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.585"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
         <Label x:Name="label" Content="Artículos existentes" HorizontalAlignment="Left" Height="50" Margin="73,10,0,0" VerticalAlignment="Top" Width="281" FontSize="29.333" Foreground="White"/>
-        <Image x:Name="imageSeleccionado" HorizontalAlignment="Left" Height="160" Margin="546,88,0,0" VerticalAlignment="Top" Width="160"/>
-        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="176" Margin="50,72,0,0" VerticalAlignment="Top" Width="460" Background="#FF3A3434" SelectionChanged="dataGridElementos_SelectionChanged_1"/>
-        <Button x:Name="btnAñadir" Content="Añadir" HorizontalAlignment="Left" Height="56" Margin="383,287,0,0" VerticalAlignment="Top" Width="171" Background="#FF2E2828" Foreground="White" FontSize="26.667" Click="btnAñadir_Click"/>
-        <Button x:Name="btnSalir" Content="GUARDAR Y SALIR" HorizontalAlignment="Left" Height="56" Margin="214,370,0,0" VerticalAlignment="Top" Width="284" Background="#FF2E2828" Foreground="White" FontSize="26.667" Click="btnEliminar_Copy_Click"/>
+        <Image x:Name="imageSeleccionado" HorizontalAlignment="Left" Height="278" Margin="675,72,0,0" VerticalAlignment="Top" Width="290"/>
+        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="278" Margin="50,72,0,0" VerticalAlignment="Top" Width="547" Background="#FF3A3434" SelectionChanged="dataGridElementos_SelectionChanged_1"/>
+        <Button x:Name="btnAñadir" Content="Añadir" HorizontalAlignment="Left" Height="56" Margin="588,420,0,0" VerticalAlignment="Top" Width="171" Background="#FF2E2828" Foreground="White" FontSize="26.667" Click="btnAñadir_Click"/>
+        <Button x:Name="btnGuardarSalir" HorizontalAlignment="Left" Height="108 " Margin="263,536,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" FontSize="26.667" Click="btnEliminar_Copy_Click" BorderBrush="#FF1F1A1A">
+            <Image x:Name="imgGuardarSalir" Source="ok.ico"/>
+        </Button>
+        <Button x:Name="btnCancelar" HorizontalAlignment="Left" Height="108" Margin="558,536,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" FontSize="26.667"  BorderBrush="#FF1F1A1A" Click="btnCancelar_Click">
+            <Image x:Name="imgCancelar" Source="cancelar.ico"/>
+        </Button>
 
 
 

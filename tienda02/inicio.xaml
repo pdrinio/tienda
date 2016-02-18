@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tienda02"
         mc:Ignorable="d"
-        Title="COMPRAS PRINCIPAL" Height="300" Width="395.919" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1F1A1A" Foreground="#FFF9F9F9">
+        Title="COMPRAS PRINCIPAL" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1F1A1A" Foreground="#FFF9F9F9">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="116*"/>
-            <RowDefinition Height="155*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="btnArticulos" HorizontalAlignment="Left" Height="58" Margin="31,53,0,0" VerticalAlignment="Top" Width="150" Content="Gestión artículos" Background="#FF2E2828" Foreground="White" FontSize="18" Click="btnArticulos_Click"/>
-        <Button x:Name="btnCompra" HorizontalAlignment="Left" Height="58" Margin="201,53,0,0" VerticalAlignment="Top" Width="145" Content="Nueva compra" Background="#FF2E2828" Foreground="White" FontSize="18" Click="btnCompra_Click"/>
-        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="58" Margin="110,30,0,0" VerticalAlignment="Top" Width="144" Content="SALIR" Background="#FF2E2828" Foreground="White" Grid.Row="1" FontSize="18" Click="btnSalir_Click"/>
 
+        <Button x:Name="btnArticulos" HorizontalAlignment="Left" Height="174" Margin="37,53,0,0" VerticalAlignment="Top" Width="218" Background="#FF2E2828" Foreground="White" FontSize="18" Click="btnArticulos_Click">
+            <Image x:Name="imagebtnArticulos" Height="96" Width="116" Source="barCode.ico"/>
+        </Button>
+        <Button x:Name="btnCompra" HorizontalAlignment="Left" Height="174" Margin="321,53,0,0" VerticalAlignment="Top" Width="218" Background="#FF2E2828" Foreground="White" FontSize="18" Click="btnCompra_Click">
+            <Image x:Name="imagebtnCompra" Height="96" Width="116" Source="newCustomer.ico"/>
+        </Button>
+        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="174" Margin="154,263,0,0" VerticalAlignment="Top" Width="278" Background="#FF2E2828" Foreground="White" FontSize="18" Click="btnSalir_Click">
+            <Image x:Name="imagebtnSalir" Height="96" Width="116" Source="exit.ico"/>
+        </Button>
     </Grid>
 </Window>
