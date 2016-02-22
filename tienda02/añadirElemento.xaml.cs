@@ -41,7 +41,7 @@ namespace tienda02
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Selecciona la imagen";
-            ofd.InitialDirectory = "c:\\tienda02";
+            ofd.InitialDirectory = @"%userprofile%\pictures";
             try
             {
                 if (ofd.ShowDialog() == true)

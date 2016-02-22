@@ -8,8 +8,8 @@
         Title="GESTIÓN DE ARTÍCULOS" Height="714.5" Width="1070.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF1F1A1A" Margin="0,0,4,2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="827*"/>
-            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btnEliminar" HorizontalAlignment="Left" Height="108" Margin="176,390,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" FontSize="26.667" Click="btnEliminar_Click" BorderBrush="#FF1F1A1A">
             <Image x:Name="imgEliminar" Source="delete.ico" RenderTransformOrigin="0.5,0.5">
@@ -24,9 +24,11 @@
             </Image>
         </Button>
         <Label x:Name="label" Content="Artículos existentes" HorizontalAlignment="Left" Height="50" Margin="73,10,0,0" VerticalAlignment="Top" Width="281" FontSize="29.333" Foreground="White"/>
-        <Image x:Name="imageSeleccionado" HorizontalAlignment="Left" Height="278" Margin="675,72,0,0" VerticalAlignment="Top" Width="290"/>
-        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="278" Margin="50,72,0,0" VerticalAlignment="Top" Width="547" Background="#FF3A3434" SelectionChanged="dataGridElementos_SelectionChanged_1"/>
-        <Button x:Name="btnAñadir" Content="Añadir" HorizontalAlignment="Left" Height="56" Margin="588,420,0,0" VerticalAlignment="Top" Width="171" Background="#FF2E2828" Foreground="White" FontSize="26.667" Click="btnAñadir_Click"/>
+        <Image x:Name="imageSeleccionado" HorizontalAlignment="Left" Height="278" Margin="713,72,0,0" VerticalAlignment="Top" Width="290"/>
+        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="278" Margin="50,72,0,0" VerticalAlignment="Top" Width="614" Background="#FF3A3434" SelectionChanged="dataGridElementos_SelectionChanged_1" RowBackground="#FF1F1B1B" RowHeight="45" FontSize="28" Foreground="White"/>
+        <Button x:Name="btnAñadir" HorizontalAlignment="Left" Height="107" Margin="610,390,0,0" VerticalAlignment="Top" Width="171" Background="#FF1F1A1A" Foreground="White" FontSize="26.667" Click="btnAñadir_Click" BorderBrush="#FF1F1A1A">
+            <Image x:Name="imgAñadir" Source="add.ico" Height="88" Width="104"/>
+        </Button>
         <Button x:Name="btnGuardarSalir" HorizontalAlignment="Left" Height="108 " Margin="263,536,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" FontSize="26.667" Click="btnEliminar_Copy_Click" BorderBrush="#FF1F1A1A">
             <Image x:Name="imgGuardarSalir" Source="ok.ico"/>
         </Button>

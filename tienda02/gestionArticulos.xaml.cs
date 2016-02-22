@@ -35,6 +35,7 @@ namespace tienda02
 
             //vinculamos el grid a la lista global de elementos
             dataGridElementos.ItemsSource = lstElementosSeleccionados;
+            
 
             try //nos traemos del json todos los elementos, a ambas listas (la observable del grid, y la de "BBDD")
             {
