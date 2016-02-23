@@ -39,9 +39,11 @@ namespace tienda02
 
         private void btnBuscarFoto_Click(object sender, RoutedEventArgs e)
         {
+            String szruta = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Selecciona la imagen";
-            ofd.InitialDirectory = @"%userprofile%\pictures";
+            ofd.InitialDirectory = szruta;
+            
             try
             {
                 if (ofd.ShowDialog() == true)
