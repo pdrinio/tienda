@@ -71,5 +71,13 @@ namespace tienda02
 
             this.DialogResult = true;
         }
+
+        private void txbPrecio_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tecladoNumerico miTeclado = new tecladoNumerico();
+            miTeclado.ShowDialog();
+        }
+
+        
     }
 }

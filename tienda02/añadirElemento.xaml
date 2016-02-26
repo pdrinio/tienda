@@ -15,7 +15,7 @@
         <TextBox x:Name="txbCodigo" HorizontalAlignment="Left" Height="40" Margin="243,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="1" Foreground="White" FontSize="22"/>
         <TextBox x:Name="txbImagen" HorizontalAlignment="Left" Height="40" Margin="243,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="100" Foreground="White" FontSize="22"/>
         <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Height="40" Margin="243,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="2" Foreground="White" FontSize="22"/>
-        <TextBox x:Name="txbPrecio" HorizontalAlignment="Left" Height="40" Margin="243,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="3" Foreground="White" FontSize="22"/>
+        <TextBox x:Name="txbPrecio" HorizontalAlignment="Left" Height="40" Margin="243,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" Background="#FF3C3232" TabIndex="3" Foreground="White" FontSize="22" GotFocus="txbPrecio_GotFocus"/>
         <Button x:Name="btnAceptar" HorizontalAlignment="Left" Height="108" Margin="130,456,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" TabIndex="4" Click="btnAceptar_Click" BorderBrush="#FF1F1A1A">
             <Image x:Name="OK" Source="ok.ico"/>
         </Button>
