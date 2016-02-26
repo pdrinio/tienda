@@ -7,25 +7,31 @@
         mc:Ignorable="d"
         Title="Teclado numérico" Height="743.523" Width="492.386" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid Background="Black" Margin="0,0, 0 ,0">
-        <Label x:Name="lblCantidad" Content="" HorizontalAlignment="Left" Height="58" Margin="108,22,0,0" VerticalAlignment="Top" Width="266" FontSize="24" FontStretch="SemiCondensed" FontWeight="Light" Foreground="#FF0FFF0A"/>
-        
-        <Button x:Name="cmb7" HorizontalAlignment="Left" Height="81" Margin="44,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="7" FontWeight="Bold"/>
-        <Button x:Name="cmb9" HorizontalAlignment="Left" Height="81" Margin="338,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="9" FontWeight="Bold"/>
-        <Button x:Name="cmb8" HorizontalAlignment="Left" Height="81" Margin="193,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="8" FontWeight="Bold"/>
-        <Button x:Name="cmb4" HorizontalAlignment="Left" Height="82" Margin="44,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="4" FontWeight="Bold"/>
-        <Button x:Name="cmb6" HorizontalAlignment="Left" Height="82" Margin="338,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="6" FontWeight="Bold"/>
-        <Button x:Name="cmb5" HorizontalAlignment="Left" Height="82" Margin="193,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="5" FontWeight="Bold"/>
-        <Button x:Name="cmb1" HorizontalAlignment="Left" Height="81" Margin="44,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="1" FontWeight="Bold"/>
-        <Button x:Name="cmb3" HorizontalAlignment="Left" Height="81" Margin="338,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="3" FontWeight="Bold"/>
-        <Button x:Name="cmb2" HorizontalAlignment="Left" Height="81" Margin="193,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="2" FontWeight="Bold"/>
-        <Button x:Name="cmbPto" HorizontalAlignment="Left" Height="81" Margin="338,465,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="." FontWeight="Bold"/>
-        <Button x:Name="cmb0" HorizontalAlignment="Left" Height="81" Margin="44,465,0,0" VerticalAlignment="Top" Width="246" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="0" FontWeight="Bold"/>
-       
+        <Label x:Name="lblCantidad" Content="" HorizontalAlignment="Left" Height="58" Margin="108,22,0,0" VerticalAlignment="Top" Width="182" FontSize="24" FontStretch="SemiCondensed" FontWeight="Light" Foreground="#FF0FFF0A"/>
+
+        <Button x:Name="cmb7" HorizontalAlignment="Left" Height="81" Margin="44,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="7" FontWeight="Bold" Click="cmb7_Click"/>
+        <Button x:Name="cmb9" HorizontalAlignment="Left" Height="81" Margin="338,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="9" FontWeight="Bold" Click="cmb9_Click"/>
+        <Button x:Name="cmb8" HorizontalAlignment="Left" Height="81" Margin="193,110,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="8" FontWeight="Bold" Click="cmb8_Click"/>
+        <Button x:Name="cmb4" HorizontalAlignment="Left" Height="82" Margin="44,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="4" FontWeight="Bold" Click="cmb4_Click"/>
+        <Button x:Name="cmb6" HorizontalAlignment="Left" Height="82" Margin="338,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="6" FontWeight="Bold" Click="cmb6_Click"/>
+        <Button x:Name="cmb5" HorizontalAlignment="Left" Height="82" Margin="193,232,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="5" FontWeight="Bold" Click="cmb5_Click"/>
+        <Button x:Name="cmb1" HorizontalAlignment="Left" Height="81" Margin="44,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="1" FontWeight="Bold" Click="cmb1_Click"/>
+        <Button x:Name="cmb3" HorizontalAlignment="Left" Height="81" Margin="338,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="3" FontWeight="Bold" Click="cmb3_Click"/>
+        <Button x:Name="cmb2" HorizontalAlignment="Left" Height="81" Margin="193,350,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="2" FontWeight="Bold" Click="cmb2_Click"/>
+        <Button x:Name="cmbPto" HorizontalAlignment="Left" Height="81" Margin="338,465,0,0" VerticalAlignment="Top" Width="97" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="." FontWeight="Bold" Click="cmbPto_Click"/>
+        <Button x:Name="cmb0" HorizontalAlignment="Left" Height="81" Margin="44,465,0,0" VerticalAlignment="Top" Width="246" BorderBrush="#FF3C3232" Background="#FF3C3232" FontSize="40" Foreground="White" Content="0" FontWeight="Bold" Click="cmb0_Click"/>
+
         <Button x:Name="btnAceptar" HorizontalAlignment="Left" Height="108" Margin="47,594,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" TabIndex="4" Click="btnAceptar_Click" BorderBrush="#FF1F1A1A">
             <Image x:Name="OK" Source="ok.ico"/>
         </Button>
         <Button x:Name="btnCancelar" HorizontalAlignment="Left" Height="108" Margin="255,594,0,0" VerticalAlignment="Top" Width="178" Background="#FF1F1A1A" Foreground="White" Click="btnCancelar_Click" TabIndex="6" BorderBrush="#FF1F1A1A">
             <Image x:Name="cancelar" Source="cancelar.ico"/>
         </Button>
+        <Button x:Name="btnBorrar" HorizontalAlignment="Left" Height="70" Margin="343,10,0,0" VerticalAlignment="Top" Width="88" Background="Black" Foreground="White" Click="btnBorrar_Click" TabIndex="6" BorderBrush="#FF1F1A1A">
+            <Image x:Name="borrar" Source="flecha_izquierda.ico" Height="70" Width="52"/>
+        </Button>
+        <TextBlock x:Name="txbValor" HorizontalAlignment="Left" Height="58" Margin="10,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="215"/>
+
+
     </Grid>
 </Window>
