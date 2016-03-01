@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="AÑADIR ELEMENTO" Height="659" Width="814.167" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF1F1A1A" Margin="0" FocusManager.FocusedElement="{Binding ElementName=txbCodigo}">
-
         <Label x:Name="label" Content="Código" Margin="63,55,590,497" Foreground="White" FontSize="34"/>
         <Label x:Name="label_Copy" Content="Nombre" Margin="63,218,590,325" Foreground="White" FontSize="34"/>
         <Label x:Name="label_Copy1" Content="Imagen" Margin="63,133,590,417" Foreground="White" FontSize="34"/>

@@ -21,6 +21,7 @@ namespace tienda02
     public partial class añadirElemento : Window
     {
         private elementos _elementoAñadido = new elementos();
+        private Decimal decPrecio;
 
         public elementos elementoAñadido
         {
@@ -75,9 +76,10 @@ namespace tienda02
         private void txbPrecio_GotFocus(object sender, RoutedEventArgs e)
         {
             tecladoNumerico miTeclado = new tecladoNumerico();
-            miTeclado.ShowDialog();
+            if (miTeclado.ShowDialog() ==true)
+            {
+                this.txbPrecio.Text = miTeclado.decPrecio.ToString();
+            }            
         }
-
-        
     }
 }

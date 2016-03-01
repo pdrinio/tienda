@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,13 @@ namespace tienda02
     /// </summary>
     public partial class tecladoNumerico : Window
     {
+        private Decimal _decPrecio;
+
+        public Decimal decPrecio
+        {
+            get { return _decPrecio; }
+        }
+
         public tecladoNumerico()
         {
             InitializeComponent();
@@ -26,7 +34,11 @@ namespace tienda02
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Decimal.TryParse(lblCantidad.Content.ToString(), NumberStyles.Any, new CultureInfo("en-US"), out _decPrecio))
+            {
+                this.DialogResult = true;
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -47,17 +59,20 @@ namespace tienda02
 
         private void cmb7_Click(object sender, RoutedEventArgs e)
         {
-            if(compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
-                this.lblCantidad.Content += "7";
-                this.txbValor.Text += "7";
+                this.lblCantidad.Content += "7";             
             }
          
         }
 
         private void cmb8_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "8";
             }
@@ -65,7 +80,9 @@ namespace tienda02
 
         private void cmb9_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "9";
             }
@@ -73,7 +90,9 @@ namespace tienda02
 
         private void cmb4_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "4";
             }
@@ -81,7 +100,9 @@ namespace tienda02
 
         private void cmb5_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "5";
             }
@@ -89,7 +110,9 @@ namespace tienda02
 
         private void cmb6_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "6";
             }
@@ -97,7 +120,9 @@ namespace tienda02
 
         private void cmb1_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "1";
             }
@@ -105,7 +130,9 @@ namespace tienda02
 
         private void cmb2_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "2";
             }
@@ -113,7 +140,9 @@ namespace tienda02
 
         private void cmb3_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "3";
             }
@@ -121,7 +150,9 @@ namespace tienda02
 
         private void cmb0_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "0";
             }
@@ -129,7 +160,9 @@ namespace tienda02
 
         private void cmbPto_Click(object sender, RoutedEventArgs e)
         {
-            if (compruebaValor(sender.ToString()))
+            Button botonPulsado = (Button)sender;
+
+            if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += ".";
             }
@@ -139,12 +172,11 @@ namespace tienda02
         {
             try
             {
-                
-                String szValor = this.txbValor.Text.ToString();
+                string szValor = this.lblCantidad.Content.ToString();                    
                 szValor += caracter;
 
                 decimal decValor;
-                if (Decimal.TryParse(szValor, out decValor))
+                if (Decimal.TryParse(szValor, NumberStyles.Any, new CultureInfo("en-US"), out decValor))
                 {
                     return true;
                 }
@@ -152,8 +184,7 @@ namespace tienda02
             }
             catch (Exception)
             {
-                return false;
-                throw;
+                return false;               
             }            
         }
     }

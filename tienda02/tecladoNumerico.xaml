@@ -30,8 +30,5 @@
         <Button x:Name="btnBorrar" HorizontalAlignment="Left" Height="70" Margin="343,10,0,0" VerticalAlignment="Top" Width="88" Background="Black" Foreground="White" Click="btnBorrar_Click" TabIndex="6" BorderBrush="#FF1F1A1A">
             <Image x:Name="borrar" Source="flecha_izquierda.ico" Height="70" Width="52"/>
         </Button>
-        <TextBlock x:Name="txbValor" HorizontalAlignment="Left" Height="58" Margin="10,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="215"/>
-
-
     </Grid>
 </Window>
