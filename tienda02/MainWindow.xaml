@@ -14,14 +14,22 @@
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="NUEVO ELEMENTO" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="26,19,0,0" Width="247" FontSize="28" Foreground="White" Height="57"/>
-        <TextBox x:Name="textBoxNuevoElemento" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF3C3232" TabIndex="1" Foreground="White" Width="261" Margin="297,19,0,0" KeyUp="textBoxNuevoElemento_KeyUp" FontSize="22"/>
+        <TextBox x:Name="textBoxNuevoElemento" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF3C3232" TabIndex="1" Foreground="White" Width="261" Margin="297,19,0,0" KeyUp="textBoxNuevoElemento_KeyUp" FontSize="22" />
         <Label x:Name="labelNuevoElemento" Content="ELEMENTO ELEGIDO" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="26,76,0,0" Width="284" FontSize="28" Foreground="White" Height="57"/>
         <Label x:Name="labelElementoSeleccionadoCodigo" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,84,0,0" Width="247" FontSize="22" Foreground="White" Height="37"/>
         <Label x:Name="label_Copy" Content="ELEMENTOS AÑADIDOS" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="659,23,0,0" Width="335" FontSize="28" Foreground="White" Height="53"/>
-        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="190" Margin="659,122,0,0" VerticalAlignment="Top" Width="465" Background="#FF3A3434" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="dataGridElementos_SelectionChanged"/>
-        <Label x:Name="labelElementoSeleccionadoNombre" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="247,134,0,0" Width="127" FontSize="20" Foreground="White" Height="37"/>
-        <Image x:Name="imageElementoSeleccionado" HorizontalAlignment="Left" Height="195" Margin="156,202,0,0" VerticalAlignment="Top" Width="245" Stretch="Fill" Cursor="None"/>
-        <Image x:Name="imageElementoAñadido" HorizontalAlignment="Left" Height="195" Margin="793,349,0,0" VerticalAlignment="Top" Width="245"/>
-        <Button x:Name="btnSalir" Content="SALIR" HorizontalAlignment="Left" Height="71" Margin="450,668,0,0" VerticalAlignment="Top" Width="239" Background="#FF2E2828" Foreground="White" FontSize="28" Click="btnSalir_Click"/>
+        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="190" Margin="659,122,0,0" VerticalAlignment="Top" Width="465" Background="#FF3A3434" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" RowHeight="45" FontSize="28" Foreground="#FF423B3B" SelectionChanged="dataGridElementos_SelectionChanged"/>
+        <Label x:Name="labelElementoSeleccionadoNombre" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,148,0,0" Width="127" FontSize="22" Foreground="White" Height="37"/>
+        <Image x:Name="imageElementoSeleccionado" HorizontalAlignment="Left" Height="195" Margin="148,332,0,0" VerticalAlignment="Top" Width="245" Stretch="Fill" Cursor="None"/>
+        <Image x:Name="imageElementoAñadido" HorizontalAlignment="Left" Height="195" Margin="793,433,0,0" VerticalAlignment="Top" Width="245"/>
+        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="71" Margin="638,668,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" Click="btnSalir_Click" BorderBrush="#FF1F1A1A">
+            <Image x:Name="cancelar" Source="cancelar.ico"></Image>
+        </Button>
+        <Label x:Name="labelElementoSeleccionadoPrecio" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,215,0,0" Width="127" FontSize="22" Foreground="White" Height="37"/>
+        <Label x:Name="labelTotal" Content="TOTAL" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="659,349,0,0" Width="104" FontSize="28" Foreground="White" Height="57"/>
+        <Label x:Name="labelTotalImporte" Content=" 0 €" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="793,355,0,0" Width="111" FontSize="22" Foreground="White" Height="37"/>
+        <Button x:Name="btnOk" HorizontalAlignment="Left" Height="71" Margin="248,668,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" BorderBrush="#FF1F1A1A" Click="btnOk_Click">
+            <Image x:Name="ok" Source="ok.ico"></Image>
+        </Button>
     </Grid>
 </Window>

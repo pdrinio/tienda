@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Cache;
@@ -31,6 +32,9 @@ namespace tienda02
 
         //id anterior, pero en este caso los objetos de "bbdd" (lo que traemos del json)
         public List<elementos> lstElementos = new List<elementos>();
+
+        //el precio del último artículo añadido a la cesta, y la cuenta a pagar
+        public decimal decUltimo, decTotal;
 
         public MainWindow()
         {
@@ -72,7 +76,15 @@ namespace tienda02
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
+            //el usuario cancela
             this.Close();
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            //el usuario acepta la compra
+            //TODO: implementar factura/ticket
+            this.Close(); 
         }
 
         private void textBoxNuevoElemento_KeyUp(object sender, KeyEventArgs e)
@@ -95,12 +107,21 @@ namespace tienda02
                     //lo traemos a la interfaz                
                     principal.labelElementoSeleccionadoCodigo.Content = elementoSeleccionado.codigo;
                     principal.labelElementoSeleccionadoNombre.Content = elementoSeleccionado.nombre;
+                    principal.labelElementoSeleccionadoPrecio.Content = elementoSeleccionado.precio + " €";
 
                     principal.imageElementoSeleccionado.Source = null;
                     principal.imageElementoSeleccionado.Source = new BitmapImage(new Uri(elementoSeleccionado.imagen.ToString()));
 
                     // lo añadimos a la lista
                     lstElementosSeleccionados.Add(elementoSeleccionado);
+
+                    //actualizamos el total de la compra, y lo presentamos
+                    if (Decimal.TryParse(elementoSeleccionado.precio, NumberStyles.Any, new CultureInfo("en-US"), out decUltimo))
+                    {
+                        decTotal += decUltimo;
+                        principal.labelTotalImporte.Content = decTotal.ToString() + " €";
+                    }
+                   
 
                     //y limpiamos el campo de entrada del código, para la siguiente
                     principal.textBoxNuevoElemento.Text = "";
@@ -112,6 +133,8 @@ namespace tienda02
                 }
             }
         }
+
+       
     }
 
 }
