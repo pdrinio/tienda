@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tienda02"
         mc:Ignorable="d"
-        Title="COMPRAS" Height="800" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1F1A1A">
+        Title="COMPRAS" Height="708" Width="1106" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF1F1A1A">
     <Grid FocusManager.FocusedElement="{Binding ElementName=textBoxNuevoElemento}" Margin="0,0,4,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1179*"/>
@@ -18,17 +18,17 @@
         <Label x:Name="labelNuevoElemento" Content="ELEMENTO ELEGIDO" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="26,76,0,0" Width="284" FontSize="28" Foreground="White" Height="57"/>
         <Label x:Name="labelElementoSeleccionadoCodigo" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,84,0,0" Width="247" FontSize="22" Foreground="White" Height="37"/>
         <Label x:Name="label_Copy" Content="ELEMENTOS AÑADIDOS" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="659,23,0,0" Width="335" FontSize="28" Foreground="White" Height="53"/>
-        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="190" Margin="659,122,0,0" VerticalAlignment="Top" Width="465" Background="#FF3A3434" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" RowHeight="45" FontSize="28" Foreground="#FF423B3B" SelectionChanged="dataGridElementos_SelectionChanged"/>
+        <DataGrid x:Name="dataGridElementos" HorizontalAlignment="Left" Height="206" Margin="659,86,0,0" VerticalAlignment="Top" Width="389" Background="#FF3A3434" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" RowHeight="45" FontSize="28" Foreground="#FF423B3B" SelectionChanged="dataGridElementos_SelectionChanged"/>
         <Label x:Name="labelElementoSeleccionadoNombre" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,148,0,0" Width="127" FontSize="22" Foreground="White" Height="37"/>
         <Image x:Name="imageElementoSeleccionado" HorizontalAlignment="Left" Height="195" Margin="148,332,0,0" VerticalAlignment="Top" Width="245" Stretch="Fill" Cursor="None"/>
-        <Image x:Name="imageElementoAñadido" HorizontalAlignment="Left" Height="195" Margin="793,433,0,0" VerticalAlignment="Top" Width="245"/>
-        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="71" Margin="638,668,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" Click="btnSalir_Click" BorderBrush="#FF1F1A1A">
+        <Image x:Name="imageElementoAñadido" HorizontalAlignment="Left" Height="158" Margin="791,387,0,0" VerticalAlignment="Top" Width="201"/>
+        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="71" Margin="640,576,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" Click="btnSalir_Click" BorderBrush="#FF1F1A1A">
             <Image x:Name="cancelar" Source="cancelar.ico"></Image>
         </Button>
         <Label x:Name="labelElementoSeleccionadoPrecio" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="297,215,0,0" Width="127" FontSize="22" Foreground="White" Height="37"/>
-        <Label x:Name="labelTotal" Content="TOTAL" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="659,349,0,0" Width="104" FontSize="28" Foreground="White" Height="57"/>
-        <Label x:Name="labelTotalImporte" Content=" 0 €" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="793,355,0,0" Width="111" FontSize="22" Foreground="White" Height="37"/>
-        <Button x:Name="btnOk" HorizontalAlignment="Left" Height="71" Margin="248,668,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" BorderBrush="#FF1F1A1A" Click="btnOk_Click">
+        <Label x:Name="labelTotal" Content="TOTAL" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="659,325,0,0" Width="104" FontSize="28" Foreground="White" Height="57"/>
+        <Label x:Name="labelTotalImporte" Content=" 0 €" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.276,1.287" Margin="793,331,0,0" Width="111" FontSize="22" Foreground="White" Height="37"/>
+        <Button x:Name="btnOk" HorizontalAlignment="Left" Height="71" Margin="248,576,0,0" VerticalAlignment="Top" Width="239" Background="#FF1F1A1A" Foreground="White" FontSize="28" BorderBrush="#FF1F1A1A" Click="btnOk_Click">
             <Image x:Name="ok" Source="ok.ico"></Image>
         </Button>
     </Grid>
