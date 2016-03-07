@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Media;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -59,8 +60,10 @@ namespace tienda02
 
         private void cmb7_Click(object sender, RoutedEventArgs e)
         {
-            Button botonPulsado = (Button)sender;
+            suenaTecla();
 
+            Button botonPulsado = (Button)sender;
+            
             if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "7";             
@@ -70,6 +73,8 @@ namespace tienda02
 
         private void cmb8_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -80,6 +85,8 @@ namespace tienda02
 
         private void cmb9_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -90,6 +97,8 @@ namespace tienda02
 
         private void cmb4_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -100,6 +109,8 @@ namespace tienda02
 
         private void cmb5_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -110,6 +121,8 @@ namespace tienda02
 
         private void cmb6_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -120,6 +133,8 @@ namespace tienda02
 
         private void cmb1_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -130,6 +145,8 @@ namespace tienda02
 
         private void cmb2_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -140,6 +157,8 @@ namespace tienda02
 
         private void cmb3_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -150,6 +169,8 @@ namespace tienda02
 
         private void cmb0_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -160,6 +181,8 @@ namespace tienda02
 
         private void cmbPto_Click(object sender, RoutedEventArgs e)
         {
+            suenaTecla();
+
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
@@ -172,6 +195,7 @@ namespace tienda02
         {
             try
             {
+
                 string szValor = this.lblCantidad.Content.ToString();                    
                 szValor += caracter;
 
@@ -180,12 +204,25 @@ namespace tienda02
                 {
                     return true;
                 }
-                else return false;
+                else
+                {
+                    SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\no.wav");
+                    player.Play();
+
+                    return false;
+                }
             }
             catch (Exception)
             {
                 return false;               
             }            
+        }
+
+        private void suenaTecla()
+        {
+            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\beep.wav");
+            player.Play();
+
         }
     }
 }
