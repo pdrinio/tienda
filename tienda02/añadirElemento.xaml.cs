@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using System.Speech.Synthesis;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,9 @@ namespace tienda02
     /// </summary>
     public partial class añadirElemento : Window
     {
-        private elementos _elementoAñadido = new elementos();
+        SpeechSynthesizer sinte = new SpeechSynthesizer(); //TTS
+
+        private elementos _elementoAñadido = new elementos(); 
         private Decimal decPrecio;
 
         public elementos elementoAñadido
@@ -30,16 +33,23 @@ namespace tienda02
 
         public añadirElemento()
         {
+            //síntesis para el habla
+            sinte.SelectVoice("Microsoft Zira Desktop");
+
             InitializeComponent();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("Changes dismissed");
+
             this.Close();
         }
 
         private void btnBuscarFoto_Click(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("Let's find a picture for this article");
+
             String szruta = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Selecciona la imagen";
@@ -64,7 +74,8 @@ namespace tienda02
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            
+            sinte.SpeakAsync("Well done; article added");
+
             _elementoAñadido.codigo = añadirElemento1.txbCodigo.Text;
             _elementoAñadido.nombre = añadirElemento1.txbNombre.Text;
             _elementoAñadido.imagen = añadirElemento1.txbImagen.Text;
@@ -75,6 +86,8 @@ namespace tienda02
 
         private void txbPrecio_GotFocus(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("Give me a price for this article");
+
             tecladoNumerico miTeclado = new tecladoNumerico();
             if (miTeclado.ShowDialog() ==true)
             {

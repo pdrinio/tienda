@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Speech.Synthesis;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,10 +29,15 @@ namespace tienda02
         //id anterior, pero en este caso los objetos de "bbdd" (lo que traemos del json)
         public List<elementos> lstElementos = new List<elementos>();
 
+        //objeto de síntesis para el habla
+        SpeechSynthesizer sinte = new SpeechSynthesizer();
 
         public gestionArticulos()
         {
             InitializeComponent();
+
+            //síntesis para el habla
+            sinte.SelectVoice("Microsoft Zira Desktop");
 
             //vinculamos el grid a la lista global de elementos
             dataGridElementos.ItemsSource = lstElementosSeleccionados;
@@ -69,6 +75,9 @@ namespace tienda02
         {
             try //GUARDAR Y SALIR: escribe el json al fichero, y sale
             {
+                //tts
+                sinte.SpeakAsync("All information is saved");
+
                 string json = JsonConvert.SerializeObject(lstElementos.ToArray());                
                 System.IO.File.WriteAllText(@"c:\tienda02\tienda02.json", json);
             }
@@ -81,7 +90,11 @@ namespace tienda02
         }
 
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
-        {       //llamamos al formulario de captura de información del nuevo elemento
+        {
+            //TTS
+            sinte.SpeakAsync("Let's add a new article");
+
+            //llamamos al formulario de captura de información del nuevo elemento
             añadirElemento wpfAñadir = new añadirElemento();
 
             if (wpfAñadir.ShowDialog() == true) //cuando pulsa aceptar devuelvo true
@@ -96,11 +109,14 @@ namespace tienda02
         {
             if (gestionArticulos1.dataGridElementos.SelectedIndex == -1)
             {
-                MessageBox.Show("No hay elementos seleccionados");
+                sinte.SpeakAsync("I need you to select an article to delete it, please");
 
             }
             else
             {
+                //TTS, mensaje de borrado
+                sinte.SpeakAsync("Article flaged to be disposed. Tap on OK to save changes");
+
                 //des-suscribimos de los eventos 
                 gestionArticulos1.dataGridElementos.SelectionChanged -= dataGridElementos_SelectionChanged_1;
 
@@ -117,6 +133,7 @@ namespace tienda02
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("Changes dismissed");
             this.Close();
         }
     }

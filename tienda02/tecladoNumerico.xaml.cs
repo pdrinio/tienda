@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System.Speech.Synthesis;
+using System.Media;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -29,10 +30,14 @@ namespace tienda02
         }
 
         MediaPlayer player = new MediaPlayer(); //para los mp3 utilizo MediaPlayer
+                                                //síntesis para el habla
 
+        SpeechSynthesizer sinte = new SpeechSynthesizer();
 
         public tecladoNumerico()
         {
+            sinte.SelectVoice("Microsoft Zira Desktop");
+
             InitializeComponent();
         }
 
@@ -40,6 +45,7 @@ namespace tienda02
         {
             if (Decimal.TryParse(lblCantidad.Content.ToString(), NumberStyles.Any, new CultureInfo("en-US"), out _decPrecio))
             {
+                sinte.SpeakAsync("Article is OK");
                 this.DialogResult = true;
             }
             
@@ -47,6 +53,7 @@ namespace tienda02
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("Cancel");
             this.Close();
         }
 
@@ -64,19 +71,13 @@ namespace tienda02
         private void cmb7_Click(object sender, RoutedEventArgs e)
         {
       
-
             Button botonPulsado = (Button)sender;
             
             if (compruebaValor(botonPulsado.Content.ToString()))
             {
                 this.lblCantidad.Content += "7";
                 suenaTecla();
-            } else
-            {               
-                SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\mp3\no.mp3");
-                player.Play();
-            }
-         
+            }          
         }
 
         private void cmb8_Click(object sender, RoutedEventArgs e)
@@ -196,13 +197,7 @@ namespace tienda02
                 suenaTecla();
                 this.lblCantidad.Content += ".";                
             }
-            else
-            {
 
-                //MediaPlayer player = new MediaPlayer(); //instanciamos un objeto por formulario para que lo capture quien quiera usar MP3
-                //player.Open(new Uri(@"c:\tienda02\sonidos\mp3\no.mp3"));
-                //player.Play();
-            }
         }
 
         private Boolean compruebaValor(string caracter)      
@@ -235,7 +230,7 @@ namespace tienda02
         private void suenaTecla()
         {
             //para los wav utilizo SoundPlayer
-            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\mp3\beep.wav");
+            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\beep.wav");
             player.Play();
 
         }
