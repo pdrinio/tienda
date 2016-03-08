@@ -21,12 +21,15 @@ namespace tienda02
     /// </summary>
     public partial class tecladoNumerico : Window
     {
-        private Decimal _decPrecio;
+        private Decimal _decPrecio; //el precio teclado (variable global, y la property
 
         public Decimal decPrecio
         {
             get { return _decPrecio; }
         }
+
+        MediaPlayer player = new MediaPlayer(); //para los mp3 utilizo MediaPlayer
+
 
         public tecladoNumerico()
         {
@@ -60,13 +63,18 @@ namespace tienda02
 
         private void cmb7_Click(object sender, RoutedEventArgs e)
         {
-            suenaTecla();
+      
 
             Button botonPulsado = (Button)sender;
             
             if (compruebaValor(botonPulsado.Content.ToString()))
             {
-                this.lblCantidad.Content += "7";             
+                this.lblCantidad.Content += "7";
+                suenaTecla();
+            } else
+            {               
+                SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\mp3\no.mp3");
+                player.Play();
             }
          
         }
@@ -181,18 +189,24 @@ namespace tienda02
 
         private void cmbPto_Click(object sender, RoutedEventArgs e)
         {
-            suenaTecla();
-
             Button botonPulsado = (Button)sender;
 
             if (compruebaValor(botonPulsado.Content.ToString()))
             {
-                this.lblCantidad.Content += ".";
+                suenaTecla();
+                this.lblCantidad.Content += ".";                
+            }
+            else
+            {
+
+                //MediaPlayer player = new MediaPlayer(); //instanciamos un objeto por formulario para que lo capture quien quiera usar MP3
+                //player.Open(new Uri(@"c:\tienda02\sonidos\mp3\no.mp3"));
+                //player.Play();
             }
         }
 
-        private Boolean compruebaValor(string caracter)
-        {
+        private Boolean compruebaValor(string caracter)      
+        { // se invoca cada vez que se pulsa una tecla; si no castea a decimal, lanza un sonido y no hace nada; devuelve bool
             try
             {
 
@@ -206,7 +220,7 @@ namespace tienda02
                 }
                 else
                 {
-                    SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\no.wav");
+                    player.Open(new Uri(@"c:\tienda02\sonidos\mp3\no.mp3"));
                     player.Play();
 
                     return false;
@@ -220,7 +234,8 @@ namespace tienda02
 
         private void suenaTecla()
         {
-            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\beep.wav");
+            //para los wav utilizo SoundPlayer
+            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\mp3\beep.wav");
             player.Play();
 
         }
