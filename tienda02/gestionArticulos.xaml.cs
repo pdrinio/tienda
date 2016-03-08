@@ -92,7 +92,7 @@ namespace tienda02
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
             //TTS
-            sinte.SpeakAsync("Let's add a new article");
+            sinte.Speak("Let's add a new article"); //no lo hago Async para que no se mezcle con el siguiente
 
             //llamamos al formulario de captura de información del nuevo elemento
             añadirElemento wpfAñadir = new añadirElemento();

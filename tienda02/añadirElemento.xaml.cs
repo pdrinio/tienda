@@ -36,6 +36,8 @@ namespace tienda02
             //síntesis para el habla
             sinte.SelectVoice("Microsoft Zira Desktop");
 
+            sinte.SpeakAsync("First scan the code");
+
             InitializeComponent();
         }
 
@@ -61,6 +63,8 @@ namespace tienda02
                 {
                     añadirElemento1.txbImagen.Text = ofd.FileName;
                     añadirElemento1.image.Source = new BitmapImage(new Uri(ofd.FileName));
+
+                    this.txbNombre.Focus();
                 }
             }
             catch (Exception)
@@ -74,14 +78,23 @@ namespace tienda02
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            sinte.SpeakAsync("Well done; article added");
+            if ((txbCodigo.Text != "") && (txbImagen.Text != "") && (txbNombre.Text != "") && (txbPrecio.Text != ""))
+            {
+                sinte.SpeakAsync("Well done; article added");
 
-            _elementoAñadido.codigo = añadirElemento1.txbCodigo.Text;
-            _elementoAñadido.nombre = añadirElemento1.txbNombre.Text;
-            _elementoAñadido.imagen = añadirElemento1.txbImagen.Text;
-            _elementoAñadido.precio = añadirElemento1.txbPrecio.Text;
+                _elementoAñadido.codigo = añadirElemento1.txbCodigo.Text;
+                _elementoAñadido.nombre = añadirElemento1.txbNombre.Text;
+                _elementoAñadido.imagen = añadirElemento1.txbImagen.Text;
+                _elementoAñadido.precio = añadirElemento1.txbPrecio.Text;
 
-            this.DialogResult = true;
+                this.DialogResult = true;
+
+            }
+            else
+            {
+                sinte.SpeakAsync("Something is missing");
+            }
+
         }
 
         private void txbPrecio_GotFocus(object sender, RoutedEventArgs e)
@@ -94,5 +107,16 @@ namespace tienda02
                 this.txbPrecio.Text = miTeclado.decPrecio.ToString();
             }            
         }
+
+        private void txbImagen_GotFocus(object sender, RoutedEventArgs e)
+        {
+            sinte.SpeakAsync("Give me an image");
+        }
+
+        private void txbNombre_GotFocus(object sender, RoutedEventArgs e)
+        {
+            sinte.SpeakAsync("Give me a name");
+        }
+        
     }
 }
