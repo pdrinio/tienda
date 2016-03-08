@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Speech.Synthesis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,24 +20,33 @@ namespace tienda02
     /// </summary>
     public partial class inicio : Window
     {
+        SpeechSynthesizer sinte = new SpeechSynthesizer(); //para el habla        
+        
         public inicio()
         {
             InitializeComponent();
+            sinte.SelectVoice("Microsoft Zira Desktop");
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
+            sinte.Speak("See you later, alligator!");
             this.Close();
         }
 
         private void btnCompra_Click(object sender, RoutedEventArgs e)
         {
+            sinte.SpeakAsync("We have a new customer!!");
+
             MainWindow wpfCompra = new MainWindow();
             wpfCompra.Show();
         }
 
         private void btnArticulos_Click(object sender, RoutedEventArgs e)
         {
+          
+            sinte.SpeakAsync("Let's manage articles!");
+
             gestionArticulos wpfGestionArticulos = new gestionArticulos();
             wpfGestionArticulos.Show();
         }
