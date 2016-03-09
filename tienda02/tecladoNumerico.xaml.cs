@@ -29,14 +29,17 @@ namespace tienda02
             get { return _decPrecio; }
         }
 
-        MediaPlayer player = new MediaPlayer(); //para los mp3 utilizo MediaPlayer
-                                                //síntesis para el habla
+        //audio
+        SoundPlayer player = new SoundPlayer(Properties.Settings.Default.MensajeBeep); //para los beep
+        
+        MediaPlayer mPlayer = new MediaPlayer(); //para los mp3 utilizo MediaPlayer                                               
 
-        SpeechSynthesizer sinte = new SpeechSynthesizer();
+        SpeechSynthesizer sinte = new SpeechSynthesizer(); //síntesis para el habla
+        
 
         public tecladoNumerico()
         {
-            sinte.SelectVoice("Microsoft Zira Desktop");
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
 
             InitializeComponent();
         }
@@ -204,19 +207,27 @@ namespace tienda02
         { // se invoca cada vez que se pulsa una tecla; si no castea a decimal, lanza un sonido y no hace nada; devuelve bool
             try
             {
-
                 string szValor = this.lblCantidad.Content.ToString();                    
                 szValor += caracter;
 
                 decimal decValor;
                 if (Decimal.TryParse(szValor, NumberStyles.Any, new CultureInfo("en-US"), out decValor))
                 {
-                    return true;
+                    if(decValor < Properties.Settings.Default.maxCompra)
+                    {
+                        return true; //es decimal, y menor que el valor máximo de Compra
+                    }
+                    else
+                    {
+                        sinte.SpeakAsync("This is very expensive!!!"); //tas pasao
+                        return false;
+                    }
                 }
                 else
                 {
-                    player.Open(new Uri(@"c:\tienda02\sonidos\mp3\no.mp3"));
-                    player.Play();
+                    //el valor no parsea a decimal                    
+                    mPlayer.Open(new Uri(Properties.Settings.Default.MensajeNo.ToString()));
+                    mPlayer.Play();
 
                     return false;
                 }
@@ -229,8 +240,7 @@ namespace tienda02
 
         private void suenaTecla()
         {
-            //para los wav utilizo SoundPlayer
-            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
+            //beep!
             player.Play();
 
         }

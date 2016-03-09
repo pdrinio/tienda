@@ -34,7 +34,7 @@ namespace tienda02
         public añadirElemento()
         {
             //síntesis para el habla
-            sinte.SelectVoice("Microsoft Zira Desktop");
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
 
             sinte.SpeakAsync("First scan the code");
 

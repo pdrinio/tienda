@@ -25,7 +25,10 @@ namespace tienda02
         public inicio()
         {
             InitializeComponent();
-            sinte.SelectVoice("Microsoft Zira Desktop");
+            
+            //poner la voz, y dar la bienvenida
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
+            sinte.SpeakAsync("Welcome to my shop!");
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

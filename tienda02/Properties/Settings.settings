@@ -1,7 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="tienda02.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="voz" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Microsoft Zira Desktop</Value>
+    </Setting>
+    <Setting Name="maxCompra" Type="System.Decimal" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="MensajeNo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\tienda02\sonidos\mp3\no.mp3</Value>
+    </Setting>
+    <Setting Name="MensajeBeep" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\tienda02\sonidos\wav\beep.wav</Value>
+    </Setting>
+    <Setting Name="MensajeCash" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\tienda02\sonidos\mp3\cash.mp3</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

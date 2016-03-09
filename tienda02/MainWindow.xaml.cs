@@ -29,14 +29,16 @@ namespace tienda02
 
     public partial class MainWindow : Window
     {
+        /* audio */
         //para los audio en wav
-        SoundPlayer playerBeep = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
+        SoundPlayer player = new SoundPlayer(Properties.Settings.Default.MensajeBeep);
         
         //para los audios en MP3
-        MediaPlayer playerCash = new MediaPlayer();
+        MediaPlayer mPlayer = new MediaPlayer();
 
         //para el habla
         SpeechSynthesizer sinte = new SpeechSynthesizer(); 
+
 
         //miembro de la clase de la ventana, como colección observable de elementos: la lista de objetos del grid;
         public ObservableCollection<elementos> lstElementosSeleccionados = new ObservableCollection<elementos>();
@@ -49,7 +51,7 @@ namespace tienda02
 
         public MainWindow()
         {
-            sinte.SelectVoice("Microsoft Zira Desktop"); //elegimos inglés
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
 
             InitializeComponent();
 
@@ -75,7 +77,7 @@ namespace tienda02
         private void dataGridElementos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //un beep            
-            playerBeep.Play();
+            player.Play();
 
             //limpiamos los controles del último seleccionado
             principal.labelElementoSeleccionadoCodigo.Content = "";
@@ -101,11 +103,15 @@ namespace tienda02
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            //clin-clin
-            playerCash.Open(new Uri(@"c:\tienda02\sonidos\mp3\cash.mp3"));
-            playerCash.Play();
-
             //el usuario acepta la compra
+
+            //decir el precio, y clin-clin
+            sinte.Speak("You owe me " + principal.labelTotalImporte.Content.ToString());
+
+            mPlayer.Open(new Uri(Properties.Settings.Default.MensajeCash));
+            mPlayer.Play();
+            
+            
             //TODO: implementar factura/ticket
             this.Close(); 
         }
@@ -121,9 +127,9 @@ namespace tienda02
                     //recuperamos el código del elemento que ha leído la pistola
                     String szLeido = principal.textBoxNuevoElemento.Text.ToString();
 
-                    //encontramos el elemento
-                    var elementoSeleccionado = (from a in lstElementos
-                                                    //  where a.codigo == principal.textBoxNuevoElemento.Text.ToString()
+                    //encontramos el elemento         
+                    //TODO: ver primero si existe el elemento, o encontrar una forma más inteligente                       
+                    var elementoSeleccionado = (from a in lstElementos                                                    
                                                 where a.codigo == szLeido
                                                 select a).First();
 
@@ -145,14 +151,16 @@ namespace tienda02
                         principal.labelTotalImporte.Content = decTotal.ToString() + " €";
                     }
                    
-
                     //y limpiamos el campo de entrada del código, para la siguiente
                     principal.textBoxNuevoElemento.Text = "";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Imposible añadir el elemento seleccionado. " + ex.ToString());
-                    throw;
+                    //no encontró el elemento, o ha habido un problema
+                    sinte.SpeakAsync("Sorry, this item is not in my database");
+                    principal.textBoxNuevoElemento.Text = "";
+                    principal.textBoxNuevoElemento.Focus();
+                   
                 }
             }
         }

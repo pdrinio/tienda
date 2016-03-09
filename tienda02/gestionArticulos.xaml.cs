@@ -34,7 +34,7 @@ namespace tienda02
         SpeechSynthesizer sinte = new SpeechSynthesizer();
 
         //objeto para los beeps de cada vez que toca algro en el grid
-        SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
+        SoundPlayer player = new SoundPlayer(Properties.Settings.Default.MensajeBeep);
         
 
         public gestionArticulos()
@@ -42,7 +42,7 @@ namespace tienda02
             InitializeComponent();
 
             //síntesis para el habla
-            sinte.SelectVoice("Microsoft Zira Desktop");
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
 
             //vinculamos el grid a la lista global de elementos
             dataGridElementos.ItemsSource = lstElementosSeleccionados;
