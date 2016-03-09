@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Speech.Synthesis;
+using System.Media;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +29,15 @@ namespace tienda02
 
     public partial class MainWindow : Window
     {
+        //para los audio en wav
+        SoundPlayer playerBeep = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
+        
+        //para los audios en MP3
+        MediaPlayer playerCash = new MediaPlayer();
+
+        //para el habla
+        SpeechSynthesizer sinte = new SpeechSynthesizer(); 
+
         //miembro de la clase de la ventana, como colección observable de elementos: la lista de objetos del grid;
         public ObservableCollection<elementos> lstElementosSeleccionados = new ObservableCollection<elementos>();
 
@@ -38,6 +49,8 @@ namespace tienda02
 
         public MainWindow()
         {
+            sinte.SelectVoice("Microsoft Zira Desktop"); //elegimos inglés
+
             InitializeComponent();
 
             //vinculamos el grid a la lista global de elementos
@@ -61,6 +74,9 @@ namespace tienda02
 
         private void dataGridElementos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //un beep            
+            playerBeep.Play();
+
             //limpiamos los controles del último seleccionado
             principal.labelElementoSeleccionadoCodigo.Content = "";
             principal.labelElementoSeleccionadoNombre.Content = "";
@@ -76,12 +92,19 @@ namespace tienda02
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
+            //decimos adios
+            sinte.SpeakAsync("Come back soon!");
+
             //el usuario cancela
             this.Close();
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
+            //clin-clin
+            playerCash.Open(new Uri(@"c:\tienda02\sonidos\mp3\cash.mp3"));
+            playerCash.Play();
+
             //el usuario acepta la compra
             //TODO: implementar factura/ticket
             this.Close(); 

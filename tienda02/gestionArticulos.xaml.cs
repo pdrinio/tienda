@@ -1,4 +1,5 @@
-﻿using System.Speech.Synthesis;
+﻿using System.Media;
+using System.Speech.Synthesis;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,10 @@ namespace tienda02
 
         //objeto de síntesis para el habla
         SpeechSynthesizer sinte = new SpeechSynthesizer();
+
+        //objeto para los beeps de cada vez que toca algro en el grid
+        SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
+        
 
         public gestionArticulos()
         {
@@ -65,7 +70,9 @@ namespace tienda02
 
         private void dataGridElementos_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            
+            //un beep
+            player.Play();
+
             //mostramos información del elemento seleccionado, cuando cambia la selección del grid
             elementos elementoAñadido = (elementos)gestionArticulos1.dataGridElementos.SelectedItem;
             gestionArticulos1.imageSeleccionado.Source = new BitmapImage(new Uri(elementoAñadido.imagen));

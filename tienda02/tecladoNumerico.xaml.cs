@@ -230,7 +230,7 @@ namespace tienda02
         private void suenaTecla()
         {
             //para los wav utilizo SoundPlayer
-            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\beep.wav");
+            SoundPlayer player = new SoundPlayer(@"c:\tienda02\sonidos\wav\beep.wav");
             player.Play();
 
         }
