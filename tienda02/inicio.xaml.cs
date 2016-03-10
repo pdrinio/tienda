@@ -53,5 +53,11 @@ namespace tienda02
             gestionArticulos wpfGestionArticulos = new gestionArticulos();
             wpfGestionArticulos.Show();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            prReco formulario = new prReco();
+            formulario.Show();
+        }
     }
 }

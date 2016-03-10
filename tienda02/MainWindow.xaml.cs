@@ -82,6 +82,7 @@ namespace tienda02
             //limpiamos los controles del último seleccionado
             principal.labelElementoSeleccionadoCodigo.Content = "";
             principal.labelElementoSeleccionadoNombre.Content = "";
+            principal.labelElementoSeleccionadoPrecio.Content = "";
             principal.imageElementoSeleccionado.Source = null;
 
             //traemos la imagen del objeto seleccionado
@@ -163,9 +164,6 @@ namespace tienda02
                    
                 }
             }
-        }
-
-       
+        }       
     }
-
 }

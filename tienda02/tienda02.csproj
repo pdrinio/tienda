@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="prReco.xaml.cs">
+      <DependentUpon>prReco.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tecladoNumerico.xaml.cs">
       <DependentUpon>tecladoNumerico.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="prReco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="tecladoNumerico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
