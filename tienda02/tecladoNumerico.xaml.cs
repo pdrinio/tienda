@@ -48,9 +48,11 @@ namespace tienda02
         {
             if (Decimal.TryParse(lblCantidad.Content.ToString(), NumberStyles.Any, new CultureInfo("en-US"), out _decPrecio))
             {
-                sinte.SpeakAsync("Article is OK");
+                //TODO: COMPROBAR ESTO
+                //sinte.SpeakAsync("Article is OK");
                 this.DialogResult = true;
             }
+
             
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Speech.Synthesis;
+﻿using Newtonsoft.Json;
+using System.Speech.Synthesis;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace tienda02
 {
@@ -23,10 +25,13 @@ namespace tienda02
     {
         SpeechSynthesizer sinte = new SpeechSynthesizer(); //TTS
 
-        private elementos _elementoAñadido = new elementos(); 
         private Decimal decPrecio;
 
-        public elementos elementoAñadido
+        public List<elementos> lstElementos = new List<elementos>(); //relación de elementos ya dados de alta (para comprobar que no doy de alta un repe)
+
+        private elementos _elementoAñadido = new elementos(); //objeto del elemento que voy a añadir cuando salga de aquí
+        
+        public elementos elementoAñadido //parte pública del elemento que doy de alta; es lo que devuelvo al salir
         {
           get { return _elementoAñadido; }
         }
@@ -34,9 +39,11 @@ namespace tienda02
         public añadirElemento()
         {
             //síntesis para el habla
-            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());
+            sinte.SelectVoice(Properties.Settings.Default.voz.ToString());            
 
-            sinte.SpeakAsync("First scan the code");
+            cargaBBDD();//cargar la bbdd
+
+            sinte.SpeakAsync("First scan the code");//damos instrucciones de lo primero que tiene que hacer
 
             InitializeComponent();
         }
@@ -69,8 +76,8 @@ namespace tienda02
             }
             catch (Exception)
             {
-
-                throw;
+                sinte.SpeakAsync("I have a problema with this picture");
+               
             }
 
 
@@ -78,23 +85,30 @@ namespace tienda02
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            //01. comprobamos que ha introducido toda la información 
             if ((txbCodigo.Text != "") && (txbImagen.Text != "") && (txbNombre.Text != "") && (txbPrecio.Text != ""))
             {
-                sinte.SpeakAsync("Well done; article added");
+                //02. ahora comprobamos que el código no está repe, y si OK, cerramos el diálogo con TRUE
+                var yaExiste = lstElementos.Any(x => x.codigo == txbCodigo.Text.ToString());
 
-                _elementoAñadido.codigo = añadirElemento1.txbCodigo.Text;
-                _elementoAñadido.nombre = añadirElemento1.txbNombre.Text;
-                _elementoAñadido.imagen = añadirElemento1.txbImagen.Text;
-                _elementoAñadido.precio = añadirElemento1.txbPrecio.Text;
+                if (yaExiste)
+                {//el artículo ya existe
+                    sinte.SpeakAsync("Article already exists; scan another");
+                }
+                else //el artículo no existía previamente
+                {
+                    sinte.SpeakAsync("Well done; article added");
 
-                this.DialogResult = true;
+                    _elementoAñadido.codigo = añadirElemento1.txbCodigo.Text;
+                    _elementoAñadido.nombre = añadirElemento1.txbNombre.Text;
+                    _elementoAñadido.imagen = añadirElemento1.txbImagen.Text;
+                    _elementoAñadido.precio = añadirElemento1.txbPrecio.Text;
+
+                    this.DialogResult = true;
+                }
 
             }
-            else
-            {
-                sinte.SpeakAsync("Something is missing");
-            }
-
+            else sinte.SpeakAsync("Something is missing");
         }
 
         private void txbPrecio_GotFocus(object sender, RoutedEventArgs e)
@@ -118,5 +132,20 @@ namespace tienda02
             sinte.SpeakAsync("Give me a name");
         }
         
+        private void cargaBBDD()
+        {
+            try //nos traemos del json todos los elementos, a la lista de los elementos
+            {
+                string json = File.ReadAllText(@"c:\tienda02\tienda02.json");
+                List<elementos> _lstElementosBBDD = JsonConvert.DeserializeObject<List<elementos>>(json); //leemos del json, y traemos al grid        
+                lstElementos = _lstElementosBBDD; //hacemos que la lista de BBDD sea la del grid, inicialmente                   
+            }
+
+            catch (Exception e)
+            {
+                sinte.SpeakAsync("Imposible to access the database");
+                this.Close();
+            }
+        }
     }
 }
